@@ -1,76 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eregion Limited</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #007bff;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Mo · EREGION LIMITED</title>
+  <!-- Google Fonts & Font Awesome for clean typography and icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fcfcfc;
+      color: #1e1e1e;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subhead {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: #5f5f5f;
+      margin-bottom: 3rem;
+    }
+
+    /* HEADER / HERO */
+    .hero {
+      padding: 5rem 0 3rem 0;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #757575;
+      margin-bottom: 2rem;
+    }
+
+    /* CARDS GRID (used for "What makes us different?" and "Get to know us") */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin: 3rem 0 4rem 0;
+    }
+
+    .card {
+      background: transparent;
+      padding: 0;
+    }
+
+    .card p {
+      color: #3a3a3a;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    /* subtle icon style (optional) */
+    .card i {
+      color: #2b2b2b;
+      margin-bottom: 1.25rem;
+      font-size: 1.8rem;
+      opacity: 0.8;
+    }
+
+    /* section spacing */
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* wide text section (work with us) */
+    .wide-text {
+      font-size: 1.25rem;
+      color: #2b2b2b;
+      max-width: 85%;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-weight: 350;
+    }
+
+    /* cookie bar (fixed bottom) */
+    .cookie-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      border-top: 1px solid #ddd;
+      padding: 0.9rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.02);
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.95);
+    }
+
+    .cookie-text {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #2c2c2c;
+    }
+
+    .cookie-text i {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-cookie {
+      background: none;
+      border: 1px solid #aaa;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.15s;
+      background: white;
+    }
+
+    .btn-cookie:hover {
+      background: #f0f0f0;
+      border-color: #777;
+    }
+
+    .btn-cookie.accept {
+      background: #1e1e1e;
+      color: white;
+      border-color: #1e1e1e;
+    }
+
+    .btn-cookie.accept:hover {
+      background: #333;
+    }
+
+    /* footer Jimdo line */
+    .footer-note {
+      margin-top: 3rem;
+      padding: 2rem 0 3rem 0;
+      border-top: 1px solid #eaeaea;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #7e7e7e;
+      font-size: 0.95rem;
+    }
+
+    .footer-note a {
+      color: #1e1e1e;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .footer-note a:hover {
+      border-color: #1e1e1e;
+    }
+
+    /* divider line for visual (like original) */
+    .hr-light {
+      border: 0;
+      border-top: 1px solid #ececec;
+      margin: 1rem 0 2rem 0;
+    }
+
+    /* mobile */
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      h1 { font-size: 2.8rem; }
+      .wide-text { max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .container { padding: 0 24px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 2rem; }
+      .cookie-bar {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+      }
+    }
+
+    /* simple hover effect for cards */
+    .card {
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* mimicking the original clean aesthetic */
+    .company-tag {
+      font-weight: 500;
+      color: #757575;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Eregion Limited</h1>
-        <p>Your Trusted Source for Computer Components</p>
-    </header>
+
+  <!-- HERO SECTION (company name + accessories) -->
+  <div class="hero">
     <div class="container">
-        <h2>About Us</h2>
-        <p>Eregion Limited specializes in the sale of high-quality computer cases, coolers, and power supplies. We provide reliable products to enhance your computing experience, whether for gaming, professional workstations, or everyday use.</p>
-        
-        <h2>Our Products</h2>
-        <ul>
-            <li>Computer Cases: Durable and stylish enclosures for your PC builds.</li>
-            <li>Coolers: Efficient cooling solutions to keep your system running smoothly.</li>
-            <li>Power Supplies: Reliable PSUs with various wattages and certifications.</li>
-        </ul>
-        
-        <h2>Contact Us</h2>
-        <p>For inquiries, please reach out to: <a href="mailto:james.mo@eregion.tech">james.mo@eregion.tech</a></p>
+      <div class="company-tag">EREGION LIMITED</div>
+      <h1>Computer Accessories</h1>
+      <div class="hero-tagline">Precision. Reliability. Design.</div>
     </div>
-    <footer>
-        &copy; 2026 Eregion Limited. All rights reserved.
-    </footer>
+  </div>
+
+  <!-- WHAT MAKES US DIFFERENT? -->
+  <section class="section">
+    <div class="container">
+      <h2>What makes us different?</h2>
+      <div class="grid-3">
+        <!-- Our Team -->
+        <div class="card">
+          <i class="fas fa-users"></i>
+          <h3>Our Team</h3>
+          <p>We’re more than a bunch of experts. We’re a family of like-minded people, using our passion and our skills to make a difference.</p>
+        </div>
+        <!-- Our Project -->
+        <div class="card">
+          <i class="fas fa-code-branch"></i>
+          <h3>Our Project</h3>
+          <p>We're always working on something. Most of the time, we're focused on getting results for our clients. But every so often we get the chance to experiment with new concepts and ideas.</p>
+        </div>
+        <!-- Our Values -->
+        <div class="card">
+          <i class="fas fa-gem"></i>
+          <h3>Our Values</h3>
+          <p>Why count on us to deliver results? Because our company is more than just a business. Each person brings something different to the team, but there are a core set of values we all share.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET TO KNOW US (second grid) -->
+  <section class="section">
+    <div class="container">
+      <h2>Get to know us</h2>
+      <div class="grid-3">
+        <!-- Our Motivation -->
+        <div class="card">
+          <i class="fas fa-bolt"></i>
+          <h3>Our Motivation</h3>
+          <p>Our work is our purpose, our driving force. It's the reason we get up every day and do what we do. Most importantly, it keeps pushing us to achieve bigger and better things with each new challenge.</p>
+        </div>
+        <!-- Our Story -->
+        <div class="card">
+          <i class="fas fa-book-open"></i>
+          <h3>Our Story</h3>
+          <p>Like all great things, we started small. We took a few like-minds with a shared vision—and ran with it. Today, we’ve grown into something big.</p>
+        </div>
+        <!-- Our Mission -->
+        <div class="card">
+          <i class="fas fa-map-signs"></i>
+          <h3>Our Mission</h3>
+          <p>It’s easy to do great work when you believe in what you do. That’s why we’re committed to helping more people like you, every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK WITH US (wide paragraph) -->
+  <section class="section">
+    <div class="container">
+      <h2>Work with us</h2>
+      <div class="wide-text">
+        Want to work with an experienced and dynamic company? Finding the right expert at the right time can be tricky. That's why we've made sure that collaborating with us is straightforward and hassle-free. To start, you can find our results, our skills, and more about the range of services we offer, here on our website. Then, when you're ready to discuss your project or just need a little advice and direction, get in touch with the team and we'll find the right solution for you.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Jimdo built with & cookie policy link inside) -->
+  <div class="container">
+    <div class="footer-note">
+      <div>
+        <i class="far fa-cookie-bite" style="margin-right: 8px;"></i>
+        <a href="#" id="cookiePolicyLink">Cookie Policy</a> · This website uses cookies.
+      </div>
+      <div>
+        Built with <a href="#">Jimdo</a> · <a href="#">Start Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIE CONSENT BAR (fixed, matches original notice) -->
+  <div class="cookie-bar" id="cookieConsentBar">
+    <div class="cookie-text">
+      <i class="fas fa-cookie-bite"></i>
+      <span>This website uses cookies. You can find more information on the types of cookies used as well as enable individual cookies in their respective categories. You can adjust your settings at any time through the link in the footer of this website.</span>
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn-cookie" id="cookieSettingsBtn">Settings</button>
+      <button class="btn-cookie accept" id="cookieAcceptBtn">Accept</button>
+    </div>
+  </div>
+
+  <!-- simple JS for cookie bar interaction -->
+  <script>
+    (function() {
+      const cookieBar = document.getElementById('cookieConsentBar');
+      const acceptBtn = document.getElementById('cookieAcceptBtn');
+      const settingsBtn = document.getElementById('cookieSettingsBtn');
+      const policyLink = document.getElementById('cookiePolicyLink');
+
+      // accept: hide bar and optionally set localStorage (just simulation)
+      acceptBtn.addEventListener('click', function() {
+        cookieBar.style.display = 'none';
+        // you could set localStorage or cookie here
+        console.log('Cookies accepted (simulated)');
+      });
+
+      settingsBtn.addEventListener('click', function() {
+        // simulate opening settings alert/dialog
+        alert('⚙️ Cookie settings panel — you could enable/disable categories here. (Demo interaction)');
+      });
+
+      // click on "Cookie Policy" link in footer also opens demo settings
+      policyLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('📄 Cookie policy — detailed information about cookies used on this site. (Demo)');
+      });
+    })();
+  </script>
+
+  <!-- tiny extra: subtle fade-in -->
+  <style>
+    body { animation: fadeIn 0.8s ease; }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+  </style>
 </body>
 </html>
